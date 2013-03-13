@@ -1,0 +1,26 @@
+{
+    "name"            : "bustermove"
+  , "description"     : "A super-simple drop-in replacement for Buster running in Node, using node-tap as a test runner"
+  , "version"         : "0.0.0"
+  , "homepage"        : "https://github.com/rvagg/node-bustermove"
+  , "authors"         : [
+        "Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+    ]
+  , "keywords"        : [ "test", "buster", "tap" ]
+  , "main"            : "./bustermove.js"
+  , "repository"      : {
+        "type"            : "git"
+      , "url"             : "https://github.com/rvagg/node-bustermove.git"
+    }
+  , "dependencies" : {
+        "sinon"           : "~1.6.0"
+      , "tap"             : "~0.4.0"
+    }
+  , "devDependencies" : {
+        "tape"            : "*"
+    }
+  , "scripts": {
+        "test"            : "node ./test.js"
+    }
+  , "license"             : "MIT"
+}
