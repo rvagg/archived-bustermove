@@ -1,5 +1,7 @@
 # BusterMove [![Build Status](https://secure.travis-ci.org/rvagg/node-bustermove.png)](http://travis-ci.org/rvagg/node-bustermove)
 
+![Hammer Time](http://i.gif.ly/d68bca81.gif)
+
 A simple drop-in replacement for [Buster](http://busterjs.org/) in Node.js.
 
 Uses [node-tap](https://github.com/isaacs/node-tap) as the test runner for now (probably until the the standard Buster test runner is working on Node 0.10).
@@ -50,6 +52,8 @@ buster.testCase('My funky tests', {
 ```
 
 You then run the test with either `node ./tests.js` or if you like, `tap *-tests.js` as it creates node-tap compatible tests.
+
+Currently only `this.spy()`, `this.stub()` and `this.mock()` are supported in the sandbox but it's possible to make it more complete. Send me a pull request if you need it.
 
 ## Licence
 
