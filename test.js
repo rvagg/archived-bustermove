@@ -4,8 +4,12 @@ var tape       = require('tape')
 
   , tests
 
-tap.test = function (testName, testFn) {
-  tests.push({ name: testName, fn: testFn })
+tap.test = function (testName, cfg, testFn) {
+  if (typeof cfg == 'function') {
+    testFn = cfg
+    cfg = {}
+  }
+  tests.push({ name: testName, cfg: cfg, fn: testFn })
 }
 
 tape('Basic', function (t) {
@@ -24,7 +28,7 @@ tape('Basic', function (t) {
   t.equal(tests.length, 1, 'one test')
   t.equal(tests[0].name, 'Test Name: test case')
   t.ok(typeof tests[0].fn, 'function')
-  tests[0].fn({ end: function () {
+  tests[0].fn({ ok: function () {}, end: function () {
     t.ok(holder, 'booya!', 'test main has been run')
     t.end()
   }})
@@ -57,7 +61,7 @@ tape('setUp and tearDown', function (t) {
   t.equal(tests.length, 1)
   t.equal(tests[0].name, 'Test Name: test case')
   t.ok(typeof tests[0].fn, 'function')
-  tests[0].fn({ end: function () {
+  tests[0].fn({ ok: function () {}, end: function () {
     runs++
     t.ok(holder.main, 'booya!', 'test main has been run')
     t.ok(holder.setUp, 'booya!', 'test setUp has been run')
@@ -140,7 +144,7 @@ tape('nested', function (t) {
 
   t.equal(tests[0].name, 'Test Name: test case')
   t.ok(typeof tests[0].fn, 'function')
-  tests[0].fn({ end: function () {
+  tests[0].fn({ ok: function () {}, end: function () {
     t.deepEqual(holder, {
           setUp          : 1
         , tearDown       : 1
@@ -157,7 +161,7 @@ tape('nested', function (t) {
 
   t.equal(tests[1].name, 'Test Name: test inner 1: inner')
   t.ok(typeof tests[1].fn, 'function')
-  tests[1].fn({ end: function () {
+  tests[1].fn({ ok: function () {}, end: function () {
     t.deepEqual(holder, {
           setUp          : 2
         , tearDown       : 2
@@ -174,7 +178,7 @@ tape('nested', function (t) {
 
   t.equal(tests[2].name, 'Test Name: test inner 2: inner')
   t.ok(typeof tests[2].fn, 'function')
-  tests[2].fn({ end: function () {
+  tests[2].fn({ ok: function () {}, end: function () {
     t.deepEqual(holder, {
           setUp          : 3
         , tearDown       : 3
@@ -191,7 +195,7 @@ tape('nested', function (t) {
 
   t.equal(tests[3].name, 'Test Name: test inner 3: inner')
   t.ok(typeof tests[3].fn, 'function')
-  tests[3].fn({ end: function () {
+  tests[3].fn({ ok: function () {}, end: function () {
     t.deepEqual(holder, {
           setUp          : 4
         , tearDown       : 4
