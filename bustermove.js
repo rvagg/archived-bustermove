@@ -50,7 +50,10 @@ var tap   = require('tap')
             if (typeof tests[name] == 'object')
               return buster.testCase(suiteName + ': ' + name, tests[name], ctx, setUp, tearDown)
             var test = createAsyncTestFn(ctx, tests[name])
-            tap.test(suiteName + ': ' + name, function (t) {
+              , cfg  = {}
+            if (ctx.timeout) cfg.timeout = ctx.timeout
+            tap.test(suiteName + ': ' + name, cfg, function (t) {
+              t.ok(true, suiteName + ': ' + name) // blank assert to tell tap we're really a test!
               setUp(function () {
                 test(function () {
                   tearDown(function () {
