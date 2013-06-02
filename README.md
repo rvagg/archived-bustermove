@@ -6,12 +6,12 @@ A simple drop-in replacement for [Buster](http://busterjs.org/) in Node.js.
 
 Uses [node-tap](https://github.com/isaacs/node-tap) as the test runner for now (probably until the the standard Buster test runner is working on Node 0.10).
 
-Supports basic Buster functionality, including [Sinon](http://sinonjs.org/) integration and structured test suites:
+Supports basic Buster functionality, including [Sinon](http://sinonjs.org/) and [referee](https://github.com/busterjs/referee) integration and structured test suites:
 
 ```js
 var buster = require('bustermove')
-  , assert = require('referee').assert // 'referee' is the new name for buster-assert
-  , refute = require('referee').refute
+  , assert = buster.assert // 'referee' is the new name for buster-assert
+  , refute = buster.refute
 
 buster.testCase('My funky tests', {
     'setUp': function (done) {

@@ -1,7 +1,8 @@
 /* Copyright (c) 2012-2013 Rod Vagg, MIT License */
 
-var tap   = require('tap')
-  , sinon = require('sinon')
+var tap     = require('tap')
+  , sinon   = require('sinon')
+  , referee = require('referee')
 
   , createAsyncTestFn = function (ctx, testFn) {
       if (!testFn) return function (done) { done() }
@@ -68,4 +69,7 @@ var tap   = require('tap')
       }
     }
 
-module.exports = buster
+module.exports         = buster
+module.exports.assert  = referee.assert
+module.exports.refute  = referee.refute
+module.exports.referee = referee
