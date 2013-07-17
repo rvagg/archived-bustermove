@@ -1,5 +1,7 @@
 # BusterMove [![Build Status](https://secure.travis-ci.org/rvagg/node-bustermove.png)](http://travis-ci.org/rvagg/node-bustermove)
 
+[![NPM](https://nodei.co/npm/bustermove.png)](https://nodei.co/npm/bustermove/)
+
 ![Hammer Time](http://i.gif.ly/d68bca81.gif)
 
 A simple drop-in replacement for [Buster](http://busterjs.org/) in Node.js.
