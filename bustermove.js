@@ -1,8 +1,15 @@
 /* Copyright (c) 2012-2013 Rod Vagg, MIT License */
 
-var tap     = require('tap')
+var taptest
   , sinon   = require('sinon')
   , referee = require('referee')
+
+try {
+  taptest = require('tap').test
+} catch (e) {}
+
+if (typeof taptest != 'function')
+  taptest = require('tape')
 
 function createAsyncTestFn (ctx, testFn) {
   if (!testFn) return function (done) { done() }
@@ -53,16 +60,21 @@ var buster = {
         var test = createAsyncTestFn(ctx, tests[name])
           , cfg  = {}
         if (ctx.timeout) cfg.timeout = ctx.timeout
-        tap.test(suiteName + ': ' + name, cfg, function (t) {
-          t.ok(true, suiteName + ': ' + name) // blank assert to tell tap we're really a test!
-          setUp(function () {
-            test(function () {
-              tearDown(function () {
-                ctx.restore()
-                t.end()
+        taptest(suiteName + ': ' + name, cfg, function (t) {
+          function execute () {
+            t.ok(true, suiteName + ': ' + name) // blank assert to tell tap we're really a test!
+            setUp(function () {
+              test(function () {
+                tearDown(function () {
+                  ctx.restore()
+                  t.end()
+                })
               })
             })
-          })
+          }
+          if (process.browser)
+            return setTimeout(execute, 0) // firefox recursion issue with tape
+          execute()
         })
       }
     })

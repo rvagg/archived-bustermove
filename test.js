@@ -1,6 +1,6 @@
 var tape       = require('tape')
   , tap        = require('tap')
-  , bustermove = require('./')
+  , bustermove
 
   , tests
 
@@ -11,6 +11,8 @@ tap.test = function (testName, cfg, testFn) {
   }
   tests.push({ name: testName, cfg: cfg, fn: testFn })
 }
+
+bustermove = require('./')
 
 tape('Basic', function (t) {
   tests = []

@@ -16,9 +16,12 @@
         "sinon"           : "~1.6.0"
       , "referee"         : "~0.11.1"
       , "tap"             : "~0.4.0"
+      , "tape"            : "~1.1.0"
     }
   , "devDependencies" : {
-        "tape"            : "*"
+    }
+  , "browser": {
+        "tap"             : false
     }
   , "scripts": {
         "test"            : "node ./test.js"
