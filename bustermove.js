@@ -52,32 +52,40 @@ var buster = {
     }
     var setUp    = createSetUp(ctx, preSetUp, tests.setUp)
       , tearDown = createTearDown(ctx, postTearDown, tests.tearDown)
+      , name
 
-    Object.keys(tests).forEach(function (name) {
+    for (name in tests) {
       if (name != 'setUp' && name != 'tearDown') {
-        if (typeof tests[name] == 'object')
-          return buster.testCase(suiteName + ': ' + name, tests[name], ctx, setUp, tearDown)
-        var test = createAsyncTestFn(ctx, tests[name])
-          , cfg  = {}
-        if (ctx.timeout) cfg.timeout = ctx.timeout
-        taptest(suiteName + ': ' + name, cfg, function (t) {
-          function execute () {
-            t.ok(true, suiteName + ': ' + name) // blank assert to tell tap we're really a test!
-            setUp(function () {
-              test(function () {
-                tearDown(function () {
-                  ctx.restore()
-                  t.end()
+        if (typeof tests[name] == 'object') {
+          buster.testCase(suiteName + ': ' + name, tests[name], ctx, setUp, tearDown)
+          continue
+        }
+
+        ;(function (name) {
+          var test = createAsyncTestFn(ctx, tests[name])
+            , cfg  = {}
+
+          if (ctx.timeout) cfg.timeout = ctx.timeout
+
+          taptest(suiteName + ': ' + name, cfg, function (t) {
+            function execute () {
+              t.ok(true, suiteName + ': ' + name) // blank assert to tell tap we're really a test!
+              setUp(function () {
+                test(function () {
+                  tearDown(function () {
+                    ctx.restore()
+                    t.end()
+                  })
                 })
               })
-            })
-          }
-          if (process.browser)
-            return setTimeout(execute, 0) // firefox recursion issue with tape
-          execute()
-        })
+            }
+            if (process.browser)
+              return setTimeout(execute, 0) // firefox recursion issue with tape
+            execute()
+          })
+        }(name))
       }
-    })
+    }
   }
 }
 
