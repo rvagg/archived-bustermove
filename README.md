@@ -6,7 +6,7 @@
 
 A simple drop-in replacement for [Buster](http://busterjs.org/) in Node.js.
 
-Uses [node-tap](https://github.com/isaacs/node-tap) as the test runner for now (probably until the the standard Buster test runner is working on Node 0.10).
+Uses [node-tap](https://github.com/isaacs/node-tap) as the test runner when in Node and [tape](https://github.com/substack/tape) when used packaged in **Browserify** (yes, that's right! You can run TAP tests, written in Buster-style, in the browser! That's surely worth an M.C. Hammer dance?).
 
 Supports basic Buster functionality, including [Sinon](http://sinonjs.org/) and [referee](https://github.com/busterjs/referee) integration and structured test suites:
 
