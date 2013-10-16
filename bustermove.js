@@ -94,3 +94,4 @@ module.exports.assert  = referee.assert
 module.exports.refute  = referee.refute
 module.exports.fail    = referee.fail
 module.exports.referee = referee
+module.exports.sinon   = sinon
