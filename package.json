@@ -1,7 +1,7 @@
 {
   "name": "bustermove",
   "description": "A super-simple drop-in replacement for Buster running in Node, using node-tap as a test runner",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "homepage": "https://github.com/rvagg/node-bustermove",
   "authors": [
     "Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
