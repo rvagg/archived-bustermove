@@ -1,31 +1,34 @@
 {
-    "name"            : "bustermove"
-  , "description"     : "A super-simple drop-in replacement for Buster running in Node, using node-tap as a test runner"
-  , "version"         : "0.3.2"
-  , "homepage"        : "https://github.com/rvagg/node-bustermove"
-  , "authors"         : [
-        "Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
-    ]
-  , "keywords"        : [ "test", "buster", "tap" ]
-  , "main"            : "./bustermove.js"
-  , "repository"      : {
-        "type"            : "git"
-      , "url"             : "https://github.com/rvagg/node-bustermove.git"
-    }
-  , "dependencies" : {
-        "sinon"           : "~1.6.0"
-      , "referee"         : "~0.11.1"
-      , "tap"             : "~0.4.0"
-      , "tape"            : "~1.1.0"
-    }
-  , "devDependencies" : {
-    }
-  , "browser": {
-        "tap"             : false
-    }
-  , "scripts": {
-        "test"            : "node ./test.js"
-    }
-  , "license"             : "MIT"
-  , "bin"                 : "./bin.js"
+  "name": "bustermove",
+  "description": "A super-simple drop-in replacement for Buster running in Node, using node-tap as a test runner",
+  "version": "0.3.2",
+  "homepage": "https://github.com/rvagg/node-bustermove",
+  "authors": [
+    "Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+  ],
+  "keywords": [
+    "test",
+    "buster",
+    "tap"
+  ],
+  "main": "./bustermove.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rvagg/node-bustermove.git"
+  },
+  "dependencies": {
+    "sinon": "~1.7.3",
+    "referee": "~1.0.1",
+    "tap": "~0.4.0",
+    "tape": "~2.3.0"
+  },
+  "devDependencies": {},
+  "browser": {
+    "tap": false
+  },
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "license": "MIT",
+  "bin": "./bin.js"
 }
