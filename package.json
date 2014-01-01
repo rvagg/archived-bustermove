@@ -21,8 +21,8 @@
     "referee": "~1.0.1"
   },
   "peerDependencies": {
-    "tap": "~0.4.0",
-    "tape": "~2.3.0"
+    "tape": "~2.3.2",
+    "tap": "~0.4.6"
   },
   "devDependencies": {},
   "browser": {
