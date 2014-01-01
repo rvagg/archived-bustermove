@@ -21,15 +21,19 @@
     "referee": "~1.0.1"
   },
   "peerDependencies": {
-    "tape": "~2.3.2",
-    "tap": "~0.4.6"
+    "tape": "2.x.x",
+    "tap": "0.x.x"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tape": "~2.3.2",
+    "tap": "~0.4.6",
+    "faucet": "0.0.0"
+  },
   "browser": {
     "tap": false
   },
   "scripts": {
-    "test": "node ./test.js"
+    "test": "faucet ./test.js"
   },
   "license": "MIT",
   "bin": "./bin.js"
