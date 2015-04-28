@@ -21,11 +21,11 @@
     "referee": "~1.0.1"
   },
   "peerDependencies": {
-    "tape": "2.x.x",
+    "tape": "4.x.x",
     "tap": "0.x.x"
   },
   "devDependencies": {
-    "tape": "~2.3.2",
+    "tape": "~4.0.0",
     "tap": "~0.4.6",
     "faucet": "0.0.0"
   },

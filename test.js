@@ -74,6 +74,7 @@ tape('setUp and tearDown', function (t) {
 })
 
 tape('nested', function (t) {
+  t.plan(13)
   tests = []
 
   var holder = {
@@ -158,7 +159,6 @@ tape('nested', function (t) {
         , inner3tearDown : 0
         , inner3main     : 0
     }, 'test has been properly run')
-    t.end()
   }})
 
   t.equal(tests[1].name, 'Test Name: test inner 1: inner')
@@ -175,7 +175,6 @@ tape('nested', function (t) {
         , inner3tearDown : 0
         , inner3main     : 0
     }, 'test has been properly run')
-    t.end()
   }})
 
   t.equal(tests[2].name, 'Test Name: test inner 2: inner')
@@ -192,7 +191,6 @@ tape('nested', function (t) {
         , inner3tearDown : 0
         , inner3main     : 0
     }, 'test has been properly run')
-    t.end()
   }})
 
   t.equal(tests[3].name, 'Test Name: test inner 3: inner')
@@ -209,6 +207,5 @@ tape('nested', function (t) {
         , inner3tearDown : 1
         , inner3main     : 1
     }, 'test has been properly run')
-    t.end()
   }})
 })
