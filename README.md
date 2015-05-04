@@ -1,4 +1,4 @@
-# BusterMove [![Build Status](https://secure.travis-ci.org/rvagg/node-bustermove.png)](http://travis-ci.org/rvagg/node-bustermove)
+# BusterMove [![Build Status](https://secure.travis-ci.org/rvagg/bustermove.png)](http://travis-ci.org/rvagg/bustermove)
 
 [![NPM](https://nodei.co/npm/bustermove.png?downloads)](https://nodei.co/npm/bustermove/)
 
